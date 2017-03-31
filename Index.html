@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="myApp">
+    <div ng-controller="orderCtrl">
+        <select ng-model="selectedCategory" ng-change="getProductsByID(selectedCategory)" ng-options="x.CategoryID as x.CategoryName for x in categories"></select>
+        <select ng-model="selectedProduct" ng-change="calPrice()" ng-options="x as x.ProductName for x in products"></select>
+        {{unitPrice | currency}}
+        <input type="text" ng-model="quantity" ng-change="calPrice()" value="0"/>
+        {{totPrice }}
+    </div>
+</body>
+</html>
